@@ -1,0 +1,11 @@
+
+<div class="search">
+    
+<div class="central">
+  <div class="add"><button class="btn btn-success"(click)="save(search)">Add <b><i>{{search}}</i></b> as favourite food</button></div>
+<form class="d-flex " (submit)="submit()">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" (keyup)="sendData($event)">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form></div>
+</div>
+  

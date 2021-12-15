@@ -1,0 +1,110 @@
+
+<div class="abc">
+<h1 align="center" class=" text-decoration-underline">Registration</h1>
+<div class="demo">
+    <form class=" form-control" #user="ngForm" (submit)="save()">
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Name<small class="text-danger">*</small></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control"   name="yujhj" pattern="[a-z A-Z]{4,20}" required
+                    [class.is-invalid]="name.invalid && name.touched" id="inputPassword3" #name="ngModel"
+                    [(ngModel)]="member.name">
+                    
+                <div *ngIf="name.errors&&(name.invalid && name.touched)" class="text-danger">
+                    <small *ngIf="name.errors.required">name is mandatory</small>
+                    <small *ngIf="name.errors.pattern">name should be alphabet</small>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email<small class="text-danger">*</small></label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" #email="ngModel" name="email" required
+                    [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="member.email">
+                <small *ngIf="email.invalid && email.touched" class="text-danger">email cannot be blank</small>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password<small class="text-danger">*</small></label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" name="password" required
+                    pattern="[0-9 A-Z a-z @#$%^&*()_+!]{8,20}" #pwd="ngModel"
+                    [class.is-invalid]="pwd.invalid && pwd.touched" [(ngModel)]="member.password">
+                <small *ngIf="pwd.invalid && pwd.touched" class="text-danger">password should be strong</small>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm Password<small class="text-danger">*</small></label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" name="password1" required
+                    validateEqual="pwd" #pwd1="ngModel" [class.is-invalid]="!(pwd.value===pwd1.value)&&pwd1.touched"
+                    ngModel>
+                <!--<small class="text-danger" *ngIf="!(pwd.value==pwd1) && pwd1.dirty">password mismatch</small>-->
+                <small class="text-danger" *ngIf=pwd.value==pwd1.value>password mismatch</small>
+            </div>
+        </div>
+        <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">Gender<small class="text-danger">*</small></legend>
+            <div class="col-sm-1" style="display: flex;">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="male"
+                        checked [(ngModel)]="member.gender">
+                    <label class="form-check-label male" for="gridRadios1">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadio" id="gridRadios2" value="female" [(ngModel)]="member.gender">
+                    <label class="form-check-label male" for="gridRadios2"  >
+                        Female
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="other" [(ngModel)]="member.gender">
+                    <label class="form-check-label" for="gridRadios2">
+                        Other
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">DOB<small class="text-danger">*</small></label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="inputPassword3" name="date" required #date="ngModel"
+                min="1990-01-01" max="2021-12-10"    
+                [class.is-invalid]="date.invalid && date.touched" [(ngModel)]="member.dob">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Mobile Number<small class="text-danger">*</small></label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputPassword3" name="mobile" required maxlength="10"
+                    pattern="[0-9]{10}" #mobile="ngModel" [class.is-invalid]="mobile.invalid && mobile.touched"
+                    [(ngModel)]="member.mobileNumber">
+                    <div *ngIf="mobile.touched">
+                    <small class="text-danger" *ngIf="mobile.errors?.pattern">number should be 10 digit</small>
+                    <small class="text-danger" *ngIf="mobile.errors?.required">number is mandatory</small></div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Food Items</label>
+            <div class="col-sm-10 form-group">
+                <select required name="food" [(ngModel)]="member.foodItems">
+                    <option>vegetable</option>
+                    <option>Non-vegetable</option>
+                </select>
+            </div>
+        </div>
+
+        <div align="center">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">upload profile picture</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+            <button class=" btn btn-success" [disabled]="user.form.invalid">submit</button>
+        </div>
+       
+    </form>
+</div>
+</div>

@@ -1,0 +1,31 @@
+
+<table  *ngFor="let i of user" class=" table table-primary ">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Branded Food Category</th>
+            <th>Brand Owner</th>
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <td>{{i.description}}</td>
+            <td>{{i.foodCategory}}</td>
+            <td>{{i.brandOwner}}</td>
+        </tr>
+    </thead><div class=" demo">
+    <table class=" table table-bordered table-dark">
+        <tr>
+            <th>Nutrition Name</th>
+            <th>Amount</th>
+            <th>Unit</th>
+        </tr>
+        <tr *ngFor="let j of user1">
+            <td>{{j.nutrientName}}</td>
+            <td>{{j.value}}</td>
+            <td>{{j.unitName}}</td>
+           
+        </tr>
+    
+    </table></div>
+</table>

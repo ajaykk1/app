@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    
+   } 
+   header nav {
+    display: block;
+  }
+  
+  @media screen and (max-width: 768px) {
+    header nav {
+      display: none;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    header nav {
+      position: fixed;
+      left: 0;
+      width: 20vw;
+    }
+  }

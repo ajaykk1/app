@@ -1,0 +1,19 @@
+.add{
+    position: absolute;
+    left: 300px;
+    top: 120px;
+    border: 2px solid black;
+
+}
+table{
+    background-color:rgba(52, 160, 160, 0.247);
+    width: 50%;
+    position:absolute;
+    left: 350px;
+}
+.demo{
+    background-image: url("https://cdn1.thesculptedvegan.com/wp-content/uploads/2018/06/06131233/nutrition-section-4-background.jpg");
+    background-size: cover;
+    background-position:right;
+    height: 100vh;
+}

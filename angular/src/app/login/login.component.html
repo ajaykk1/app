@@ -1,0 +1,26 @@
+<div class="demo">
+<div class="demo1 w-50">
+  <h4 class="text-center" style="color:rgb(0, 253, 0);" *ngIf="title">Registration Completed please login</h4>
+  <form class="form-control px-4 py-3" #login="ngForm" (submit)="submit()">
+    <div class="mb-4">
+      <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+
+      <input type="email" class="form-control" [class.alert-danger]="error && email.touched" #email="ngModel"
+        id="exampleDropdownFormEmail1" name="email" required [(ngModel)]="loginName">
+    </div>
+    <div class="mb-3">
+      <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword1" #pwd="ngModel"
+        [class.alert-danger]="error && email.dirty" required name="password" [(ngModel)]="loginPassword">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="login.form.invalid && error">Sign in</button>
+  </form>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="signup">New around here? Sign up</a>
+</div>
+<div class="error text-danger" *ngIf="!(error)">
+  <i class="fas fa-2x fa-exclamation-triangle"></i>
+  <div>
+    <p class=" m-2"> Invalid credentials or user doesn't exist </p>
+  </div>
+</div></div>

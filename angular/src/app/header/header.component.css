@@ -1,0 +1,13 @@
+.search{
+    position: relative;
+    right: 100px;
+}
+.login{
+    position: relative;
+    right: 50px;
+}
+* {
+    box-sizing: border-box;
+    color:indigo;
+    
+   } 
